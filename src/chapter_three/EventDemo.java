@@ -28,6 +28,8 @@ public class EventDemo extends JFrame implements ActionListener{
 //	     	    }
 	        	public void keyReleased(KeyEvent e) {
 	        		
+	        		button.setEnabled(false);
+	        		
 	        	}
 	        }); // Add KeyListener
 

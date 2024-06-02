@@ -3,7 +3,7 @@ package chapter_three;
 import java.awt.*;
 import java.awt.event.*;
 
-public class MouseEventHandlingDemo {
+public class MouseEventHandlingDemo implements MouseListener{
 
     private Frame f;
     private Label hl, ml, sl;
@@ -27,21 +27,7 @@ public class MouseEventHandlingDemo {
 
         ml.setAlignment(Label.CENTER);
         
-       f.addMouseListener(new MouseListener() {
-            public void mouseClicked(MouseEvent e) {
-                sl.setText("Mouse Clicked: (" + e.getX() + ", " + e.getY() + ")"+f.getSize().getHeight()+f.getSize().getWidth());
-            }
-            public void mousePressed(MouseEvent e) {
-            }
-            public void mouseReleased(MouseEvent e) {
-            }
-            public void mouseEntered(MouseEvent e) {
-            	sl.setText("Mouse Entered:");
-            }
-            public void mouseExited(MouseEvent e) {
-            	sl.setText("Mouse exited");
-            }
-        }); 
+       f.addMouseListener(this); 
        //p.add(sl);
        // p.add(ml);
         f.add(sl);
@@ -53,6 +39,20 @@ public class MouseEventHandlingDemo {
         	}
 
         });
+    }
+    
+    public void mouseClicked(MouseEvent e) {
+        sl.setText("Mouse Clicked: (" + e.getX() + ", " + e.getY() + ")"+f.getSize().getHeight()+f.getSize().getWidth());
+    }
+    public void mousePressed(MouseEvent e) {
+    }
+    public void mouseReleased(MouseEvent e) {
+    }
+    public void mouseEntered(MouseEvent e) {
+    	sl.setText("Mouse Entered:");
+    }
+    public void mouseExited(MouseEvent e) {
+    	sl.setText("Mouse exited");
     }
 
     public static void main(String[] args) {
